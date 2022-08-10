@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <PipeSystem.PipeNetDef>
+    <defName>VNPE_NutrientPasteNet</defName>
+    <resource>
+      <name>Nutrient paste</name>
+      <unit>meal(s)</unit>
+      <color>(0.49, 0.54, 0.42)</color>
+      <onlyShowStored>true</onlyShowStored>
+      <offTexPath>Things/Item/Resource/Chemfuel</offTexPath>
+    </resource>
+    <pipeDefs>
+      <li>VNPE_NutrientPastePipe</li>
+      <li>VNPE_UndergroundNutrientPastePipe</li>
+    </pipeDefs>
+    <designator>
+      <deconstructIconPath>Things/Building/Linked/NutrientPipes/NutrientPipes_Deconstruct</deconstructIconPath>
+      <designationCategoryDef>Production</designationCategoryDef>
+    </designator>
+    <overlayOptions>
+      <overlayColor>(0.49, 0.54, 0.42)</overlayColor>
+    </overlayOptions>
+  </PipeSystem.PipeNetDef>
+</Defs>
