@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Defs>
+  <DesignatorDropdownGroupDef>
+    <defName>VNPE_NutrientPastePipes</defName>
+    <label>nutrient paste pipes</label>
+  </DesignatorDropdownGroupDef>
+
   <ThingDef ParentName="BuildingBase">
     <defName>VNPE_NutrientPastePipe</defName>
     <label>nutrient paste pipe</label>
@@ -7,6 +12,7 @@
     <thingClass>PipeSystem.Building_Pipe</thingClass>
     <category>Building</category>
     <tickerType>Rare</tickerType>
+    <designatorDropdown>VNPE_NutrientPastePipes</designatorDropdown>
     <graphicData>
       <texPath>Things/Building/Linked/NutrientPipes/NutrientPipes_Atlas</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -78,6 +84,7 @@
     <thingClass>PipeSystem.Building_Pipe</thingClass>
     <category>Building</category>
     <tickerType>Rare</tickerType>
+    <designatorDropdown>VNPE_NutrientPastePipes</designatorDropdown>
     <graphicData>
       <texPath>UI/CSG/IConduit</texPath>
       <graphicClass>Graphic_Single</graphicClass>
