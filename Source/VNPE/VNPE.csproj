@@ -58,9 +58,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Building_AdjustColor.cs" />
-    <Compile Include="Building_NutrientGrinder.cs" />
-    <Compile Include="CompProperties_RegisterToGrinder.cs" />
+    <Compile Include="Buildings\Building_AdjustColor.cs" />
+    <Compile Include="Buildings\Building_NutrientGrinder.cs" />
+    <Compile Include="Comps\CompRegisterToGrinder.cs" />
+    <Compile Include="Comps\CompsProperties\CompProperties_RegisterToGrinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
