@@ -3,14 +3,6 @@ using Verse;
 
 namespace VNPE
 {
-    public class CompProperties_RegisterToGrinder : CompProperties
-    {
-        public CompProperties_RegisterToGrinder()
-        {
-            compClass = typeof(CompRegisterToGrinder);
-        }
-    }
-
     public class CompRegisterToGrinder : ThingComp
     {
         public override void PostSpawnSetup(bool respawningAfterLoad)
