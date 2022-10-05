@@ -67,7 +67,6 @@
         <thing>MealNutrientPaste</thing>
       </li>
     </comps>
-    <rotatable>false</rotatable>
     <researchPrerequisites>
       <li>NutrientPaste</li>
     </researchPrerequisites>
