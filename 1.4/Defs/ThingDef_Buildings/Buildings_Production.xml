@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>VNPE_NutrientPasteGrinder</defName>
+    <label>nutrient paste grinder</label>
+    <description>A machine that synthesizes edible nutrient paste from organic feedstocks placed in adjacent hoppers. It consumes less ingredients and time than any other meal production method - but nobody likes eating nutrient paste. Accepts raw food, but not rough plant matter like hay. It does not actually dispense the nutrient paste, but it allows it to be pumped into vats and dispensers in the network.</description>
+    <thingClass>VNPE.Building_NutrientGrinder</thingClass>
+    <graphicData>
+      <texPath>Things/Building/NutrientPasteGrinder</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+      </damageData>
+      <drawRotated>false</drawRotated>
+      <allowFlip>false</allowFlip>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <statBases>
+      <MaxHitPoints>350</MaxHitPoints>
+      <WorkToBuild>2400</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,3)</size>
+    <costList>
+      <Steel>100</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <building>
+      <nutritionCostPerDispense>0.3</nutritionCostPerDispense>
+      <wantsHopperAdjacent>true</wantsHopperAdjacent>
+      <buildingTags>
+        <li>Production</li>
+      </buildingTags>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <tickerType>Rare</tickerType>
+    <comps>
+      <li Class="PipeSystem.CompProperties_Resource">
+        <pipeNet>VNPE_NutrientPasteNet</pipeNet>
+      </li>
+      <li Class="CompProperties_Flickable" />
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>100</basePowerConsumption>
+      </li>
+    </comps>
+    <rotatable>false</rotatable>
+    <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+    <designationCategory>Production</designationCategory>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <canOverlapZones>false</canOverlapZones>
+    <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>NutrientPaste</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="FurnitureBase">
+    <defName>VNPE_NutrientPasteFeeder</defName>
+    <label>nutrient paste feeder</label>
+    <description>A small pipe output that allows colonists and citizens to pick up nutrient paste.</description>
+    <graphicData>
+      <texPath>Things/Building/NutrientPasteFeeder/NutrientPasteFeeder</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+      </damageData>
+      <drawRotated>false</drawRotated>
+      <allowFlip>false</allowFlip>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <fillPercent>0.5</fillPercent>
+    <castEdgeShadows>true</castEdgeShadows>
+    <pathCost>50</pathCost>
+    <statBases>
+      <MaxHitPoints>120</MaxHitPoints>
+      <Mass>8</Mass>
+      <WorkToBuild>800</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(1,1)</size>
+    <costList>
+      <Steel>20</Steel>
+    </costList>
+    <building>
+      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+      <fixedStorageSettings>
+        <filter>
+          <disallowNotEverStorable>true</disallowNotEverStorable>
+          <thingDefs>
+            <li>MealNutrientPaste</li>
+          </thingDefs>
+        </filter>
+      </fixedStorageSettings>
+      <defaultStorageSettings>
+        <priority>Normal</priority>
+        <filter>
+          <disallowNotEverStorable>true</disallowNotEverStorable>
+          <thingDefs>
+            <li>MealNutrientPaste</li>
+          </thingDefs>
+        </filter>
+      </defaultStorageSettings>
+    </building>
+    <inspectorTabs>
+      <li>ITab_Storage</li>
+    </inspectorTabs>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <designationCategory>Production</designationCategory>
+    <surfaceType>Item</surfaceType>
+    <canOverlapZones>false</canOverlapZones>
+    <comps>
+      <li Class="PipeSystem.CompProperties_ConvertResourceToThing">
+        <pipeNet>VNPE_NutrientPasteNet</pipeNet>
+        <maxOutputStackSize>1</maxOutputStackSize>
+        <thing>MealNutrientPaste</thing>
+      </li>
+    </comps>
+    <researchPrerequisites>
+      <li>NutrientPaste</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VNPE_NutrientPasteTap</defName>
+    <label>nutrient paste tap</label>
+    <description>A hopper-like storage basin meant to hold dispensed nutrient paste meal from the vats. Can be used by colonists, prisoners and animals. Nutrient paste meal dispensed and ready for pick-up can deteriorate.</description>
+    <graphicData>
+      <texPath>Things/Building/NutrientPasteTap/NutrientPasteTap</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(4,2)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1800</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <costList>
+      <Steel>30</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <building>
+      <isMealSource>true</isMealSource>
+      <forceShowRoomStats>true</forceShowRoomStats>
+      <buildingTags>
+        <li>Production</li>
+      </buildingTags>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <comps>
+      <li Class="PipeSystem.CompProperties_Resource">
+        <pipeNet>VNPE_NutrientPasteNet</pipeNet>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>100</basePowerConsumption>
+      </li>
+    </comps>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Production</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <canOverlapZones>false</canOverlapZones>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>NutrientPaste</li>
+    </researchPrerequisites>
+  </ThingDef>
+</Defs>
