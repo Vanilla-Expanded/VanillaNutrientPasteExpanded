@@ -4,7 +4,6 @@
     <defName>VNPE_NutrientPasteFeeder</defName>
     <label>nutrient paste feeder</label>
     <description>A small pipe output that allows colonists and citizens to pick up nutrient paste.</description>
-    <thingClass>VNPE.Building_AdjustStorageColor</thingClass>
     <graphicData>
       <texPath>Things/Building/NutrientPasteFeeder/NutrientPasteFeeder</texPath>
       <graphicClass>Graphic_Multi</graphicClass>

@@ -4,6 +4,7 @@
     <defName>VNPE_NutrientPasteGrinder</defName>
     <label>nutrient paste grinder</label>
     <description>A machine that synthesizes edible nutrient paste from organic feedstocks placed in adjacent hoppers. It consumes less ingredients and time than any other meal production method - but nobody likes eating nutrient paste. Accepts raw food, but not rough plant matter like hay. It does not actually dispense the nutrient paste, but it allows it to be pumped into vats and dispensers in the network.</description>
+    <thingClass>VNPE.Building_NutrientGrinder</thingClass>
     <graphicData>
       <texPath>Things/Building/NutrientPasteGrinder</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -31,12 +32,14 @@
       <ComponentIndustrial>2</ComponentIndustrial>
     </costList>
     <building>
+      <nutritionCostPerDispense>0.3</nutritionCostPerDispense>
       <wantsHopperAdjacent>true</wantsHopperAdjacent>
       <buildingTags>
         <li>Production</li>
       </buildingTags>
       <destroySound>BuildingDestroyed_Metal_Big</destroySound>
     </building>
+    <tickerType>Rare</tickerType>
     <comps>
       <li Class="PipeSystem.CompProperties_Resource">
         <pipeNet>VNPE_NutrientPasteNet</pipeNet>

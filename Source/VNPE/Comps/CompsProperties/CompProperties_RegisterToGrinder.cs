@@ -4,9 +4,6 @@ namespace VNPE
 {
     public class CompProperties_RegisterToGrinder : CompProperties
     {
-        public CompProperties_RegisterToGrinder()
-        {
-            compClass = typeof(CompRegisterToGrinder);
-        }
+        public CompProperties_RegisterToGrinder() => compClass = typeof(CompRegisterToGrinder);
     }
 }

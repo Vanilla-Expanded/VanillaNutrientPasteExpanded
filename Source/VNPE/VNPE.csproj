@@ -58,7 +58,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buildings\Building_AdjustColor.cs" />
     <Compile Include="Buildings\Building_NutrientGrinder.cs" />
     <Compile Include="Comps\CompRegisterToGrinder.cs" />
     <Compile Include="Comps\CompsProperties\CompProperties_RegisterToGrinder.cs" />
