@@ -69,7 +69,7 @@
     <neverMultiSelect>true</neverMultiSelect>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>VCHE_PipeNetworks</designationCategory>
     <constructEffect>ConstructMetal</constructEffect>
     <clearBuildingArea>false</clearBuildingArea>
     <researchPrerequisites>
@@ -141,7 +141,7 @@
     <neverMultiSelect>true</neverMultiSelect>
     <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
     <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>VCHE_PipeNetworks</designationCategory>
     <constructEffect>ConstructMetal</constructEffect>
     <clearBuildingArea>false</clearBuildingArea>
     <researchPrerequisites>
@@ -196,7 +196,7 @@
     <selectable>true</selectable>
     <neverMultiSelect>false</neverMultiSelect>
     <tickerType>Normal</tickerType>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>VCHE_PipeNetworks</designationCategory>
     <constructEffect>ConstructMetal</constructEffect>
     <researchPrerequisites>
       <li>NutrientPaste</li>

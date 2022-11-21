@@ -45,7 +45,7 @@
     </comps>
     <rotatable>false</rotatable>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
-    <designationCategory>Production</designationCategory>
+    <designationCategory>VCHE_PipeNetworks</designationCategory>
     <staticSunShadowHeight>0.2</staticSunShadowHeight>
     <constructEffect>ConstructMetal</constructEffect>
     <canOverlapZones>false</canOverlapZones>

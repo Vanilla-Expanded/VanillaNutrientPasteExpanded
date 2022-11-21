@@ -15,7 +15,7 @@
     </pipeDefs>
     <designator>
       <deconstructIconPath>Things/Building/Linked/NutrientPipes/NutrientPipes_Deconstruct</deconstructIconPath>
-      <designationCategoryDef>Production</designationCategoryDef>
+      <designationCategoryDef>VCHE_PipeNetworks</designationCategoryDef>
     </designator>
     <overlayOptions>
       <overlayColor>(0.49, 0.54, 0.42)</overlayColor>
