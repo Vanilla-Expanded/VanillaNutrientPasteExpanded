@@ -62,6 +62,79 @@
     </researchPrerequisites>
   </ThingDef>
 
+  <JobDef>
+    <defName>VNPE_TakeFromTap</defName>
+    <driverClass>VNPE.JobDriver_TakeFromTap</driverClass>
+    <reportString>consuming TargetA.</reportString>
+    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
+  </JobDef>
+
+  <ThingDef ParentName="BuildingBase">
+    <defName>VNPE_NutrientPasteTap</defName>
+    <label>nutrient paste tap</label>
+    <description>A hopper-like storage basin meant to hold dispensed nutrient paste meal from the vats. Can be used by colonists, prisoners and animals. Nutrient paste meal dispensed and ready for pick-up can deteriorate.</description>
+    <thingClass>VNPE.Building_NutrientPasteTap</thingClass>
+    <graphicData>
+      <texPath>Things/Building/NutrientPasteTap/NutrientPasteTap</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <color>(232,255,191)</color>
+      <shaderType>CutoutComplex</shaderType>
+      <drawSize>(4,2)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>1800</WorkToBuild>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <costList>
+      <Steel>30</Steel>
+      <ComponentIndustrial>1</ComponentIndustrial>
+    </costList>
+    <building>
+      <isMealSource>true</isMealSource>
+      <wantsHopperAdjacent>false</wantsHopperAdjacent>
+      <soundDispense>DispensePaste</soundDispense>
+      <forceShowRoomStats>true</forceShowRoomStats>
+      <buildingTags>
+        <li>Production</li>
+      </buildingTags>
+      <destroySound>BuildingDestroyed_Metal_Big</destroySound>
+    </building>
+    <placeWorkers>
+      <li>PlaceWorker_PreventInteractionSpotOverlap</li>
+    </placeWorkers>
+    <comps>
+      <li Class="PipeSystem.CompProperties_Resource">
+        <pipeNet>VNPE_NutrientPasteNet</pipeNet>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>100</basePowerConsumption>
+      </li>
+    </comps>
+    <socialPropernessMatters>true</socialPropernessMatters>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <hasInteractionCell>true</hasInteractionCell>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Production</designationCategory>
+    <constructEffect>ConstructMetal</constructEffect>
+    <canOverlapZones>false</canOverlapZones>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>NutrientPaste</li>
+    </researchPrerequisites>
+  </ThingDef>
+
   <ThingDef ParentName="FurnitureBase">
     <defName>VNPE_NutrientPasteFeeder</defName>
     <label>nutrient paste feeder</label>

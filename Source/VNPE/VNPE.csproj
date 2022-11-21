@@ -58,10 +58,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buildings\Building_Feeder.cs" />
     <Compile Include="Buildings\Building_NutrientGrinder.cs" />
+    <Compile Include="Buildings\Building_NutrientPasteTap.cs" />
     <Compile Include="Comps\CompRegisterToGrinder.cs" />
     <Compile Include="Comps\CompsProperties\CompProperties_RegisterToGrinder.cs" />
+    <Compile Include="Harmony\Postfix_JobGiver_GetFood_TryGiveJob.cs" />
+    <Compile Include="Harmony\Postfix_Room_NotifyRoomShapeChanged.cs" />
+    <Compile Include="Init.cs" />
+    <Compile Include="JobDriver_TakeFromTap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VThingDefOf.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Lib.Harmony" ExcludeAssets="Runtime">
+      <Version>2.2.2</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
