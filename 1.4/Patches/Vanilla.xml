@@ -19,4 +19,13 @@
       </value>
     </match>
   </Operation>
+
+  <Operation Class="PatchOperationAdd">
+    <xpath>/Defs/ThingDef[defName="NutrientPasteDispenser"]/comps</xpath>
+    <value>
+      <li Class="PipeSystem.CompProperties_Resource">
+        <pipeNet>VNPE_NutrientPasteNet</pipeNet>
+      </li>
+    </value>
+  </Operation>
 </Patch>
