@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using PipeSystem;
 using RimWorld;
@@ -14,11 +15,28 @@ namespace VNPE
         public CompPowerTrader powerComp;
         public CompResource resourceComp;
 
+        private Effecter effecter;
+        private int nextTick = -1;
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
             powerComp = GetComp<CompPowerTrader>();
             resourceComp = GetComp<CompResource>();
+
+            var adjCells = GenAdj.CellsAdjacentCardinal(this).ToList();
+            for (int i = 0; i < adjCells.Count; i++)
+            {
+                var cell = adjCells[i];
+                if (cell.GetFirstBuilding(map) is Building h && h.TryGetComp<CompRegisterToGrinder>() is CompRegisterToGrinder compRegisterToGrinder)
+                {
+                    this.RegisterHopper(h);
+                }
+            }
+
+
+            if (!respawningAfterLoad)
+                nextTick = Find.TickManager.TicksGame + 125;
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -40,14 +58,35 @@ namespace VNPE
             return builder.ToString().Trim();
         }
 
-        public override void TickRare()
+        public override void ExposeData()
         {
-            if (!powerComp.PowerOn || cachedHoppers.NullOrEmpty())
-                return;
-            // Produce two time only if first succeded
-            // each 250 ticks -> 2 paste
-            if (TryProducePaste())
-                TryProducePaste();
+            base.ExposeData();
+            Scribe_Values.Look(ref nextTick, "nextTick");
+        }
+
+        public override void Tick()
+        {
+            var tick = Find.TickManager.TicksGame;
+            if (tick >= nextTick)
+            {
+                nextTick = tick + 125;
+                if (!powerComp.PowerOn || cachedHoppers.NullOrEmpty())
+                    return;
+
+                if (TryProducePaste() && effecter == null)
+                {
+                    effecter = VThingDefOf.EatVegetarian.Spawn();
+                    effecter.Trigger(this, new TargetInfo(Position, Map));
+                }
+            }
+            else if (tick >= nextTick - 50 && effecter != null)
+            {
+                effecter?.Cleanup();
+                effecter = null;
+            }
+
+            if (effecter != null)
+                effecter.EffectTick(this, new TargetInfo(Position, Map));
         }
 
         private bool TryProducePaste()

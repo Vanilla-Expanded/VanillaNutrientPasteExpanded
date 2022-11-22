@@ -39,7 +39,7 @@
       </buildingTags>
       <destroySound>BuildingDestroyed_Metal_Big</destroySound>
     </building>
-    <tickerType>Rare</tickerType>
+    <tickerType>Normal</tickerType>
     <comps>
       <li Class="PipeSystem.CompProperties_Resource">
         <pipeNet>VNPE_NutrientPasteNet</pipeNet>
