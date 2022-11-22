@@ -270,6 +270,7 @@
       <li Class="CompProperties_Facility">
         <maxSimultaneous>1</maxSimultaneous>
         <mustBePlacedAdjacent>true</mustBePlacedAdjacent>
+        <mustBePlacedAdjacentCardinalToAndFacingBedHead>true</mustBePlacedAdjacentCardinalToAndFacingBedHead>
       </li>
       <li Class="PipeSystem.CompProperties_Resource">
         <pipeNet>VNPE_NutrientPasteNet</pipeNet>
@@ -280,6 +281,6 @@
     </placeWorkers>
     <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
     <uiIconScale>0.85</uiIconScale>
-    <tickerType>Long</tickerType>
+    <tickerType>Rare</tickerType>
   </ThingDef>
 </Defs>
