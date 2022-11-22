@@ -11,9 +11,20 @@ namespace VNPE
 
         public override bool TryMakePreToilReservations(bool errorOnFailed) => true;
 
+        private Thing IngestibleSource => job.GetTarget(TargetIndex.A).Thing;
+        private float ChewDurationMultiplier
+        {
+            get
+            {
+                Thing ingestibleSource = IngestibleSource;
+                return ingestibleSource.def.ingestible != null && !ingestibleSource.def.ingestible.useEatingSpeedStat ? 1f : 1f / pawn.GetStatValue(StatDefOf.EatingSpeed);
+            }
+        }
+
         protected override IEnumerable<Toil> MakeNewToils()
         {
             yield return Toils_Goto.GotoThing(TargetIndex.A, PathEndMode.InteractionCell).FailOnDespawnedNullOrForbidden(TargetIndex.A);
+
             Toil toil = ToilMaker.MakeToil("TakeMealFromNutrientPaste");
             toil.FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
             toil.handlingFacing = true;
@@ -34,8 +45,14 @@ namespace VNPE
                 }
             };
             yield return toil;
+
             yield return Toils_Ingest.CarryIngestibleToChewSpot(pawn, TargetIndex.A).FailOnDestroyedNullOrForbidden(TargetIndex.A);
+
             yield return Toils_Ingest.FindAdjacentEatSurface(TargetIndex.B, TargetIndex.A);
+
+            yield return Toils_Ingest.ChewIngestible(pawn, ChewDurationMultiplier, TargetIndex.A, TargetIndex.B).FailOnCannotTouch(TargetIndex.A, PathEndMode.Touch);
+
+            yield return Toils_Ingest.FinalizeIngest(pawn, TargetIndex.A);
         }
     }
 }
