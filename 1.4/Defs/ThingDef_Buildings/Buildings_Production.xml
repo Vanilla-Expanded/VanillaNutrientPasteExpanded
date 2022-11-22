@@ -143,8 +143,8 @@
     <graphicData>
       <texPath>Things/Building/NutrientPasteFeeder/NutrientPasteFeeder</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
-      <shaderType>CutoutComplex</shaderType>
       <color>(232,255,191)</color>
+      <shaderType>CutoutComplex</shaderType>
       <drawSize>(1,1)</drawSize>
       <damageData>
         <cornerTL>Damage/Corner</cornerTL>
@@ -153,7 +153,6 @@
       <drawRotated>false</drawRotated>
       <allowFlip>false</allowFlip>
     </graphicData>
-    <drawerType>MapMeshOnly</drawerType>
     <rotatable>false</rotatable>
     <altitudeLayer>Building</altitudeLayer>
     <passability>PassThroughOnly</passability>
@@ -199,7 +198,6 @@
     <inspectorTabs>
       <li>ITab_Storage</li>
     </inspectorTabs>
-    <socialPropernessMatters>true</socialPropernessMatters>
     <designationCategory>VCHE_PipeNetworks</designationCategory>
     <surfaceType>Item</surfaceType>
     <canOverlapZones>false</canOverlapZones>
@@ -213,6 +211,7 @@
     <researchPrerequisites>
       <li>NutrientPaste</li>
     </researchPrerequisites>
+    <drawerType>MapMeshAndRealTime</drawerType>
   </ThingDef>
 
   <ThingDef ParentName="BuildingBase">
@@ -237,7 +236,6 @@
         <cornerTR>Damage/Corner</cornerTR>
       </damageData>
     </graphicData>
-    <drawerType>MapMeshOnly</drawerType>
     <defaultPlacingRot>South</defaultPlacingRot>
     <researchPrerequisites>
       <li>NutrientPaste</li>
@@ -261,7 +259,6 @@
       <forceShowRoomStats>true</forceShowRoomStats>
     </building>
     <designationCategory>VCHE_PipeNetworks</designationCategory>
-    <socialPropernessMatters>true</socialPropernessMatters>
     <minifiedDef>MinifiedThing</minifiedDef>
     <thingCategories>
       <li>BuildingsMisc</li>
