@@ -13,7 +13,6 @@ namespace VNPE
         public CompPowerTrader powerComp;
 
         public override Color DrawColor => !this.IsSociallyProper(null, false) ? Building_Bed.SheetColorForPrisoner : base.DrawColor;
-        public override Color DrawColorTwo => base.DrawColor;
 
         public bool CanDispenseNow => powerComp.PowerOn && resourceComp.PipeNet is PipeNet net && net.Stored >= 1;
 

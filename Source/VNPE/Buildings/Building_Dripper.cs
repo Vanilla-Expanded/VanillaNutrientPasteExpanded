@@ -12,8 +12,7 @@ namespace VNPE
         public CompResource resourceComp;
         public float nutrientPasteNutrition;
 
-        public override Color DrawColor => Position.GetRoom(Map).IsPrisonCell ? Building_Bed.SheetColorForPrisoner : base.DrawColor;
-        public override Color DrawColorTwo => base.DrawColor;
+        public override Color DrawColor => Position.IsInPrisonCell(Map) ? Building_Bed.SheetColorForPrisoner : base.DrawColor;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {

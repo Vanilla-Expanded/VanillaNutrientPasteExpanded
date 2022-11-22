@@ -142,7 +142,7 @@
     <thingClass>VNPE.Building_Feeder</thingClass>
     <graphicData>
       <texPath>Things/Building/NutrientPasteFeeder/NutrientPasteFeeder</texPath>
-      <graphicClass>Graphic_Multi</graphicClass>
+      <graphicClass>Graphic_Single</graphicClass>
       <color>(232,255,191)</color>
       <shaderType>CutoutComplex</shaderType>
       <drawSize>(1,1)</drawSize>
