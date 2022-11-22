@@ -20,6 +20,10 @@ namespace VNPE
                 var pasteFeeders = map.listerThings.ThingsOfDef(VThingDefOf.VNPE_NutrientPasteFeeder);
                 for (int i = 0; i < pasteFeeders.Count; i++)
                     pasteFeeders[i].Notify_ColorChanged();
+
+                var pasteDrippers = map.listerThings.ThingsOfDef(VThingDefOf.VNPE_NutrientPasteDripper);
+                for (int i = 0; i < pasteDrippers.Count; i++)
+                    pasteDrippers[i].Notify_ColorChanged();
             }
         }
     }

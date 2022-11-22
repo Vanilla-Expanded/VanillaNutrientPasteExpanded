@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buildings\Building_Dripper.cs" />
     <Compile Include="Buildings\Building_Feeder.cs" />
     <Compile Include="Buildings\Building_NutrientGrinder.cs" />
     <Compile Include="Buildings\Building_NutrientPasteTap.cs" />

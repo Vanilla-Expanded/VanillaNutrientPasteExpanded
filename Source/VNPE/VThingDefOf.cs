@@ -8,6 +8,7 @@ namespace VNPE
     {
         public static ThingDef VNPE_NutrientPasteTap;
         public static ThingDef VNPE_NutrientPasteFeeder;
+        public static ThingDef VNPE_NutrientPasteDripper;
         public static JobDef VNPE_TakeFromTap;
 
         static VThingDefOf() => DefOfHelper.EnsureInitializedInCtor(typeof(VThingDefOf));
