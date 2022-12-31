@@ -1,11 +1,6 @@
-﻿using HarmonyLib;
-using RimWorld;
-using Verse;
-using Verse.AI;
-
-namespace VNPE
+﻿namespace VNPE
 {
-    [HarmonyPatch(typeof(JobGiver_GetFood))]
+    /*[HarmonyPatch(typeof(JobGiver_GetFood))]
     [HarmonyPatch("TryGiveJob", MethodType.Normal)]
     public static class Postfix_JobGiver_GetFood_TryGiveJob
     {
@@ -65,5 +60,5 @@ namespace VNPE
                     __result = JobMaker.MakeJob(VThingDefOf.VNPE_TakeFromTap, best);
             }
         }
-    }
+    }*/
 }
