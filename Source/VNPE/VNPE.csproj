@@ -67,7 +67,7 @@
     <Compile Include="Harmony\Postfix_Alert_PasteDispenserNeedsHopper_BadDispensers.cs" />
     <Compile Include="Harmony\Postfix_Building_NutrientPasteDispenser_HasEnoughFeedstockInHoppers.cs" />
     <Compile Include="Harmony\Prefix_Building_NutrientPasteDispenser_TryDispenseFood.cs" />
-    <Compile Include="Harmony\Postfix_JobGiver_GetFood_TryGiveJob.cs" />
+    <Compile Include="Harmony\ThingListGroupHelper_Includes_Patch.cs" />
     <Compile Include="Harmony\Postfix_Room_NotifyRoomShapeChanged.cs" />
     <Compile Include="Init.cs" />
     <Compile Include="JobDriver_TakeFromTap.cs" />
