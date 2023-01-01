@@ -10,7 +10,6 @@ namespace VNPE
     {
         public CompFacility facilityComp;
         public CompResource resourceComp;
-        public float nutrientPasteNutrition;
 
         public override Color DrawColor => Position.IsInPrisonCell(Map) ? Building_Bed.SheetColorForPrisoner : base.DrawColor;
 
@@ -19,7 +18,6 @@ namespace VNPE
             base.SpawnSetup(map, respawningAfterLoad);
             facilityComp = GetComp<CompFacility>();
             resourceComp = GetComp<CompResource>();
-            nutrientPasteNutrition = ThingDefOf.MealNutrientPaste.statBases.GetStatValueFromList(StatDefOf.Nutrition, 0f);
         }
 
         public override void TickRare()
@@ -40,12 +38,11 @@ namespace VNPE
                         // Make sure we only apply effect to pawn right next to the dripper
                         if (occupant.Position.AdjacentToCardinal(pos))
                         {
-                            var wanted = occupant.needs.food.NutritionWanted;
-                            if (wanted >= nutrientPasteNutrition)
+                            if (occupant.needs.food.CurLevelPercentage <= 0.4)
                             {
                                 net.DrawAmongStorage(1, net.storages);
                                 var thing = ThingMaker.MakeThing(ThingDefOf.MealNutrientPaste);
-                                var ingestedNum = thing.Ingested(occupant, nutrientPasteNutrition);
+                                var ingestedNum = thing.Ingested(occupant, occupant.needs.food.NutritionWanted);
                                 occupant.needs.food.CurLevel += ingestedNum;
                                 occupant.records.AddTo(RecordDefOf.NutritionEaten, ingestedNum);
                             }
