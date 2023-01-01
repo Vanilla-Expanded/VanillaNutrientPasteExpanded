@@ -179,7 +179,7 @@
         </filter>
       </fixedStorageSettings>
       <defaultStorageSettings>
-        <priority>Normal</priority>
+        <priority>Preferred</priority>
         <filter>
           <disallowNotEverStorable>true</disallowNotEverStorable>
           <thingDefs>
