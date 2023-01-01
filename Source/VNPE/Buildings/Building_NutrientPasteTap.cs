@@ -29,6 +29,11 @@ namespace VNPE
 
         public bool CanDispenseNowOverride => powerComp.PowerOn && resourceComp.PipeNet is PipeNet net && net.Stored >= 1;
 
+        public override bool HasEnoughFeedstockInHoppers()
+        {
+            return resourceComp.PipeNet is PipeNet net && net.Stored >= 1;
+        }
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
