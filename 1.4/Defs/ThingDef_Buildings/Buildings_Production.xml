@@ -62,13 +62,6 @@
     </researchPrerequisites>
   </ThingDef>
 
-  <JobDef>
-    <defName>VNPE_TakeFromTap</defName>
-    <driverClass>VNPE.JobDriver_TakeFromTap</driverClass>
-    <reportString>consuming TargetA.</reportString>
-    <allowOpportunisticPrefix>true</allowOpportunisticPrefix>
-  </JobDef>
-
   <ThingDef ParentName="BuildingBase">
     <defName>VNPE_NutrientPasteTap</defName>
     <label>nutrient paste tap</label>
