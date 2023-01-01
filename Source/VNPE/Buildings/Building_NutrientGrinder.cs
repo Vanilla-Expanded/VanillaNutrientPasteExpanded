@@ -10,6 +10,8 @@ namespace VNPE
 {
     public class Building_NutrientGrinder : Building
     {
+        const int produceTicksNeeded = 400;
+
         private List<Thing> cachedHoppers;
 
         public CompPowerTrader powerComp;
@@ -36,7 +38,7 @@ namespace VNPE
 
 
             if (!respawningAfterLoad)
-                nextTick = Find.TickManager.TicksGame + 125;
+                nextTick = Find.TickManager.TicksGame + produceTicksNeeded;
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -55,6 +57,11 @@ namespace VNPE
             if (!this.IsSociallyProper(null, false))
                 builder.AppendLine((string)"InPrisonCell".Translate());
 
+            if (Prefs.DevMode)
+            {
+                builder.AppendLine($"{cachedHoppers.Count} connected hopper(s)\n");
+            }
+
             return builder.ToString().Trim();
         }
 
@@ -69,7 +76,7 @@ namespace VNPE
             var tick = Find.TickManager.TicksGame;
             if (tick >= nextTick)
             {
-                nextTick = tick + 125;
+                nextTick = tick + produceTicksNeeded;
                 if (!powerComp.PowerOn || cachedHoppers.NullOrEmpty())
                     return;
 
@@ -79,7 +86,7 @@ namespace VNPE
                     effecter.Trigger(this, new TargetInfo(Position, Map));
                 }
             }
-            else if (tick >= nextTick - 50 && effecter != null)
+            else if (tick >= nextTick - 150 && effecter != null)
             {
                 effecter?.Cleanup();
                 effecter = null;
