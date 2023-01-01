@@ -2,6 +2,7 @@
 <Defs>
   <PipeSystem.PipeNetDef>
     <defName>VNPE_NutrientPasteNet</defName>
+    <noStorageAlert>true</noStorageAlert>
     <resource>
       <name>Nutrient paste</name>
       <unit>meal(s)</unit>
