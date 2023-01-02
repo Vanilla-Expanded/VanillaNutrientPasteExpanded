@@ -41,8 +41,14 @@
           <ratio>1</ratio>
           <maxRadius>5</maxRadius>
         </destroyOption>
+        <contentRequirePower>true</contentRequirePower>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
       </li>
     </comps>
+    <tickerType>Rare</tickerType>
     <rotatable>false</rotatable>
     <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
     <designationCategory>VCHE_PipeNetworks</designationCategory>
