@@ -10,6 +10,7 @@ namespace VNPE
     {
         public CompFacility facilityComp;
         public CompResource resourceComp;
+        public CompPowerTrader powerComp;
 
         public override Color DrawColor => Position.IsInPrisonCell(Map) ? Building_Bed.SheetColorForPrisoner : base.DrawColor;
 
@@ -18,10 +19,14 @@ namespace VNPE
             base.SpawnSetup(map, respawningAfterLoad);
             facilityComp = GetComp<CompFacility>();
             resourceComp = GetComp<CompResource>();
+            powerComp = GetComp<CompPowerTrader>();
         }
 
         public override void TickRare()
         {
+            if (!powerComp.PowerOn)
+                return;
+
             var pos = Position;
             var net = resourceComp.PipeNet;
             var linkeds = facilityComp.LinkedBuildings;
