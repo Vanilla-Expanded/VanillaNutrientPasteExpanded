@@ -46,8 +46,21 @@ namespace VNPE
                             if (occupant.needs.food.CurLevelPercentage <= 0.4)
                             {
                                 net.DrawAmongStorage(1, net.storages);
-                                var thing = ThingMaker.MakeThing(ThingDefOf.MealNutrientPaste);
-                                var ingestedNum = thing.Ingested(occupant, occupant.needs.food.NutritionWanted);
+                                var meal = ThingMaker.MakeThing(ThingDefOf.MealNutrientPaste);
+                                if (meal.TryGetComp<CompIngredients>() is CompIngredients ingredients)
+                                {
+                                    for (int s = 0; s < net.storages.Count; s++)
+                                    {
+                                        var parent = net.storages[s].parent;
+                                        if (parent.TryGetComp<CompRegisterIngredients>() is CompRegisterIngredients storageIngredients)
+                                        {
+                                            for (int ig = 0; ig < storageIngredients.ingredients.Count; ig++)
+                                                ingredients.RegisterIngredient(storageIngredients.ingredients[ig]);
+                                        }
+                                    }
+                                }
+
+                                var ingestedNum = meal.Ingested(occupant, occupant.needs.food.NutritionWanted);
                                 occupant.needs.food.CurLevel += ingestedNum;
                                 occupant.records.AddTo(RecordDefOf.NutritionEaten, ingestedNum);
                             }
