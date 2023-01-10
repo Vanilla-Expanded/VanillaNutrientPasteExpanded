@@ -71,7 +71,22 @@ namespace VNPE
             var net = resourceComp.PipeNet;
             def.building.soundDispense.PlayOneShot(new TargetInfo(Position, Map));
             net.DrawAmongStorage(1, net.storages);
-            return ThingMaker.MakeThing(ThingDefOf.MealNutrientPaste);
+
+            var meal = ThingMaker.MakeThing(ThingDefOf.MealNutrientPaste);
+            if (meal.TryGetComp<CompIngredients>() is CompIngredients ingredients)
+            {
+                for (int i = 0; i < net.storages.Count; i++)
+                {
+                    var parent = net.storages[i].parent;
+                    if (parent.TryGetComp<CompRegisterIngredients>() is CompRegisterIngredients storageIngredients)
+                    {
+                        for (int o = 0; o < storageIngredients.ingredients.Count; o++)
+                            ingredients.RegisterIngredient(storageIngredients.ingredients[o]);
+                    }
+                }
+            }
+
+            return meal;
         }
     }
 }

@@ -36,7 +36,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="PipeSystem">
-      <HintPath>..\..\..\VanillaExpandedFramework\1.3\Assemblies\PipeSystem.dll</HintPath>
+      <HintPath>..\..\..\VanillaExpandedFramework\1.4\Assemblies\PipeSystem.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Core" />
@@ -62,7 +62,9 @@
     <Compile Include="Buildings\Building_Feeder.cs" />
     <Compile Include="Buildings\Building_NutrientGrinder.cs" />
     <Compile Include="Buildings\Building_NutrientPasteTap.cs" />
+    <Compile Include="Comps\CompRegisterIngredients.cs" />
     <Compile Include="Comps\CompRegisterToGrinder.cs" />
+    <Compile Include="Comps\CompsProperties\CompProperties_RegisterIngredients.cs" />
     <Compile Include="Comps\CompsProperties\CompProperties_RegisterToGrinder.cs" />
     <Compile Include="Harmony\Postfix_Alert_PasteDispenserNeedsHopper_BadDispensers.cs" />
     <Compile Include="Harmony\Postfix_Building_NutrientPasteDispenser_HasEnoughFeedstockInHoppers.cs" />

@@ -103,6 +103,15 @@ namespace VNPE
             if (net == null || net.AvailableCapacity < 1 || !HasEnoughFeed())
                 return false;
 
+            var comps = new List<CompRegisterIngredients>();
+            for (int i = 0; i < net.storages.Count; i++)
+            {
+                var storage = net.storages[i];
+                if (storage.parent.GetComp<CompRegisterIngredients>() is CompRegisterIngredients comp)
+                    comps.Add(comp);
+            }
+            var compsCount = comps.Count;
+
             var num = def.building.nutritionCostPerDispense - 0.00001f;
             while (num > 0)
             {
@@ -112,6 +121,9 @@ namespace VNPE
                     Log.Error("Did not find enough food in hoppers while trying to grind.");
                     return false;
                 }
+
+                for (int i = 0; i < compsCount; i++)
+                    comps[i].RegisterIngredient(feed.def);
 
                 var count = Mathf.Min(feed.stackCount, Mathf.CeilToInt(num / feed.GetStatValue(StatDefOf.Nutrition)));
                 num -= count * feed.GetStatValue(StatDefOf.Nutrition);

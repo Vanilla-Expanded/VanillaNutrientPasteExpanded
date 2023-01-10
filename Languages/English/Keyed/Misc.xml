@@ -2,4 +2,7 @@
 <LanguageData>
   <VNPE_NutValve>Switches nutrient paste flow on/off.</VNPE_NutValve>
   <VNPE_NutValveDesc>Switches nutrient paste flow on/off. A pawn will come open/close the valve.</VNPE_NutValveDesc>
+
+  <VNPE_Drain>Drain vat</VNPE_Drain>
+  <VNPE_DrainDesc>Drain vat content. This will remove any unwanted ingredients from the vat.</VNPE_DrainDesc>
 </LanguageData>
