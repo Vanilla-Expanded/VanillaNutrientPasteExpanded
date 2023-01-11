@@ -5,4 +5,8 @@
 
   <VNPE_Drain>Drain vat</VNPE_Drain>
   <VNPE_DrainDesc>Drain vat content. This will remove any unwanted ingredients from the vat.</VNPE_DrainDesc>
+
+  <VNPE_Extract5>Extract 5 meals</VNPE_Extract5>
+  <VNPE_Extract10>Extract 10 meals</VNPE_Extract10>
+  <VNPE_Extract20>Extract 20 meals</VNPE_Extract20>
 </LanguageData>
