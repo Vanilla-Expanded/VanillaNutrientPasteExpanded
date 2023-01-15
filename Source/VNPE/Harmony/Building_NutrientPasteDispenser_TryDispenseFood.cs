@@ -24,7 +24,7 @@ namespace VNPE
                 return false;
             }
 
-            if (__instance.FindFeedInAnyHopper() == null)
+            if (!Building_NutrientPasteDispenser_GetGizmos.HasEnoughFeedstockInHoppers(__instance))
             {
                 var comp = __instance.GetComp<CompResource>();
                 if (comp != null && comp.PipeNet is PipeNet net && net.Stored >= 1)
