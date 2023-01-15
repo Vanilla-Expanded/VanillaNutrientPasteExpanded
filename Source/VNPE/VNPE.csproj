@@ -67,6 +67,7 @@
     <Compile Include="Comps\CompsProperties\CompProperties_RegisterIngredients.cs" />
     <Compile Include="Comps\CompsProperties\CompProperties_RegisterToGrinder.cs" />
     <Compile Include="Harmony\Alert_PasteDispenserNeedsHopper_BadDispensers.cs" />
+    <Compile Include="Harmony\Building_GrowthVat_Tick.cs" />
     <Compile Include="Harmony\Building_NutrientPasteDispenser_CanDispenseNow.cs" />
     <Compile Include="Harmony\Building_NutrientPasteDispenser_GetGizmos.cs" />
     <Compile Include="Harmony\Building_NutrientPasteDispenser_HasEnoughFeedstockInHoppers.cs" />
