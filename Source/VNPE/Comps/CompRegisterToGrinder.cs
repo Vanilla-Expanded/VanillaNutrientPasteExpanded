@@ -7,6 +7,15 @@ namespace VNPE
     {
         private List<Building_NutrientGrinder> grinders;
 
+        public override void PostDeSpawn(Map map)
+        {
+            base.PostDeSpawn(map);
+            for (int i = 0; i < grinders.Count; i++)
+            {
+                grinders[i].UnregisterHopper(parent);
+            }
+        }
+
         public override void PostSpawnSetup(bool respawningAfterLoad)
         {
             LongEventHandler.ExecuteWhenFinished(() =>
@@ -31,15 +40,6 @@ namespace VNPE
                     grinders[i].RegisterHopper(parent);
                 }
             });
-        }
-
-        public override void PostDeSpawn(Map map)
-        {
-            base.PostDeSpawn(map);
-            for (int i = 0; i < grinders.Count; i++)
-            {
-                grinders[i].UnregisterHopper(parent);
-            }
         }
     }
 }

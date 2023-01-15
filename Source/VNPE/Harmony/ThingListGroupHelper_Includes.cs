@@ -1,20 +1,20 @@
-﻿using HarmonyLib;
-using RimWorld;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
+using HarmonyLib;
+using RimWorld;
 using Verse;
 
 namespace VNPE
 {
     [HarmonyPatch(typeof(ThingListGroupHelper), "Includes")]
-    public static class ThingListGroupHelper_Includes_Patch
+    public static class ThingListGroupHelper_Includes
     {
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> codeInstructions)
         {
             var typeFromHandle = AccessTools.Method(typeof(Type), "GetTypeFromHandle");
-            var isDerivedFrom = AccessTools.Method(typeof(ThingListGroupHelper_Includes_Patch), "IsDerivedFrom");
+            var isDerivedFrom = AccessTools.Method(typeof(ThingListGroupHelper_Includes), "IsDerivedFrom");
             var codes = codeInstructions.ToList();
             for (var i = 0; i < codes.Count; i++)
             {
@@ -28,7 +28,7 @@ namespace VNPE
             }
         }
 
-        public static bool IsDerivedFrom(Type type, Type toCheck) 
+        public static bool IsDerivedFrom(Type type, Type toCheck)
         {
             return toCheck.IsAssignableFrom(type);
         }

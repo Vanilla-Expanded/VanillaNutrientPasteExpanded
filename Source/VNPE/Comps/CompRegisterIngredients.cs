@@ -13,12 +13,6 @@ namespace VNPE
         private static readonly Texture2D transferIcon = ContentFinder<Texture2D>.Get("UI/TransferStorageContent");
         private CompResourceStorage compResourceStorage;
 
-        public override void PostSpawnSetup(bool respawningAfterLoad)
-        {
-            base.PostSpawnSetup(respawningAfterLoad);
-            compResourceStorage = parent.GetComp<CompResourceStorage>();
-        }
-
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
             foreach (var gizmo in base.CompGetGizmosExtra())
@@ -54,6 +48,12 @@ namespace VNPE
 
             if (compResourceStorage.AmountStored == 0)
                 ingredients.Clear();
+        }
+
+        public override void PostSpawnSetup(bool respawningAfterLoad)
+        {
+            base.PostSpawnSetup(respawningAfterLoad);
+            compResourceStorage = parent.GetComp<CompResourceStorage>();
         }
     }
 }

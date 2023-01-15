@@ -9,9 +9,8 @@ namespace VNPE
     public class Building_Dripper : Building
     {
         public CompFacility facilityComp;
-        public CompResource resourceComp;
         public CompPowerTrader powerComp;
-
+        public CompResource resourceComp;
         public override Color DrawColor => Position.IsInPrisonCell(Map) ? Building_Bed.SheetColorForPrisoner : base.DrawColor;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)

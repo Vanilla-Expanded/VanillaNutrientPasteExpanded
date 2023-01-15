@@ -8,7 +8,7 @@ namespace VNPE
 {
     [HarmonyPatch(typeof(Alert_PasteDispenserNeedsHopper))]
     [HarmonyPatch("BadDispensers", MethodType.Getter)]
-    public static class Postfix_Alert_PasteDispenserNeedsHopper_BadDispensers
+    public static class Alert_PasteDispenserNeedsHopper_BadDispensers
     {
         public static void Postfix(ref List<Thing> ___badDispensersResult)
         {

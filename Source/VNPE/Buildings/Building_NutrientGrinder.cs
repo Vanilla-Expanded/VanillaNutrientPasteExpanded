@@ -10,35 +10,19 @@ namespace VNPE
 {
     public class Building_NutrientGrinder : Building
     {
-        const int produceTicksNeeded = 400;
-
-        private List<Thing> cachedHoppers;
-
         public CompPowerTrader powerComp;
         public CompResource resourceComp;
 
+        private const int produceTicksNeeded = 400;
+
+        private List<Thing> cachedHoppers;
         private Effecter effecter;
         private int nextTick = -1;
 
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        public override void ExposeData()
         {
-            base.SpawnSetup(map, respawningAfterLoad);
-            powerComp = GetComp<CompPowerTrader>();
-            resourceComp = GetComp<CompResource>();
-
-            var adjCells = GenAdj.CellsAdjacentCardinal(this).ToList();
-            for (int i = 0; i < adjCells.Count; i++)
-            {
-                var cell = adjCells[i];
-                if (cell.GetFirstBuilding(map) is Building h && h.TryGetComp<CompRegisterToGrinder>() is CompRegisterToGrinder compRegisterToGrinder)
-                {
-                    this.RegisterHopper(h);
-                }
-            }
-
-
-            if (!respawningAfterLoad)
-                nextTick = Find.TickManager.TicksGame + produceTicksNeeded;
+            base.ExposeData();
+            Scribe_Values.Look(ref nextTick, "nextTick");
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -65,12 +49,34 @@ namespace VNPE
             return builder.ToString().Trim();
         }
 
-        public override void ExposeData()
+        public void RegisterHopper(Thing hopper)
         {
-            base.ExposeData();
-            Scribe_Values.Look(ref nextTick, "nextTick");
+            if (cachedHoppers == null)
+                cachedHoppers = new List<Thing>();
+
+            if (!cachedHoppers.Contains(hopper))
+                cachedHoppers.Add(hopper);
         }
 
+        public override void SpawnSetup(Map map, bool respawningAfterLoad)
+        {
+            base.SpawnSetup(map, respawningAfterLoad);
+            powerComp = GetComp<CompPowerTrader>();
+            resourceComp = GetComp<CompResource>();
+
+            var adjCells = GenAdj.CellsAdjacentCardinal(this).ToList();
+            for (int i = 0; i < adjCells.Count; i++)
+            {
+                var cell = adjCells[i];
+                if (cell.GetFirstBuilding(map) is Building h && h.TryGetComp<CompRegisterToGrinder>() is CompRegisterToGrinder compRegisterToGrinder)
+                {
+                    this.RegisterHopper(h);
+                }
+            }
+
+            if (!respawningAfterLoad)
+                nextTick = Find.TickManager.TicksGame + produceTicksNeeded;
+        }
         public override void Tick()
         {
             var tick = Find.TickManager.TicksGame;
@@ -96,42 +102,10 @@ namespace VNPE
                 effecter.EffectTick(this, new TargetInfo(Position, Map));
         }
 
-        private bool TryProducePaste()
+        public void UnregisterHopper(Thing hopper)
         {
-            var net = resourceComp.PipeNet;
-
-            if (net == null || net.AvailableCapacity < 1 || !HasEnoughFeed())
-                return false;
-
-            var comps = new List<CompRegisterIngredients>();
-            for (int i = 0; i < net.storages.Count; i++)
-            {
-                var storage = net.storages[i];
-                if (storage.parent.GetComp<CompRegisterIngredients>() is CompRegisterIngredients comp)
-                    comps.Add(comp);
-            }
-            var compsCount = comps.Count;
-
-            var num = def.building.nutritionCostPerDispense - 0.00001f;
-            while (num > 0)
-            {
-                var feed = FindFeedInAnyHopper();
-                if (feed == null)
-                {
-                    Log.Error("Did not find enough food in hoppers while trying to grind.");
-                    return false;
-                }
-
-                for (int i = 0; i < compsCount; i++)
-                    comps[i].RegisterIngredient(feed.def);
-
-                var count = Mathf.Min(feed.stackCount, Mathf.CeilToInt(num / feed.GetStatValue(StatDefOf.Nutrition)));
-                num -= count * feed.GetStatValue(StatDefOf.Nutrition);
-                feed.SplitOff(count);
-            }
-
-            net.DistributeAmongStorage(1);
-            return true;
+            if (cachedHoppers.Contains(hopper))
+                cachedHoppers.Remove(hopper);
         }
 
         private Thing FindFeedInAnyHopper()
@@ -175,19 +149,42 @@ namespace VNPE
             return false;
         }
 
-        public void RegisterHopper(Thing hopper)
+        private bool TryProducePaste()
         {
-            if (cachedHoppers == null)
-                cachedHoppers = new List<Thing>();
+            var net = resourceComp.PipeNet;
 
-            if (!cachedHoppers.Contains(hopper))
-                cachedHoppers.Add(hopper);
-        }
+            if (net == null || net.AvailableCapacity < 1 || !HasEnoughFeed())
+                return false;
 
-        public void UnregisterHopper(Thing hopper)
-        {
-            if (cachedHoppers.Contains(hopper))
-                cachedHoppers.Remove(hopper);
+            var comps = new List<CompRegisterIngredients>();
+            for (int i = 0; i < net.storages.Count; i++)
+            {
+                var storage = net.storages[i];
+                if (storage.parent.GetComp<CompRegisterIngredients>() is CompRegisterIngredients comp)
+                    comps.Add(comp);
+            }
+            var compsCount = comps.Count;
+
+            var num = def.building.nutritionCostPerDispense - 0.00001f;
+            while (num > 0)
+            {
+                var feed = FindFeedInAnyHopper();
+                if (feed == null)
+                {
+                    Log.Error("Did not find enough food in hoppers while trying to grind.");
+                    return false;
+                }
+
+                for (int i = 0; i < compsCount; i++)
+                    comps[i].RegisterIngredient(feed.def);
+
+                var count = Mathf.Min(feed.stackCount, Mathf.CeilToInt(num / feed.GetStatValue(StatDefOf.Nutrition)));
+                num -= count * feed.GetStatValue(StatDefOf.Nutrition);
+                feed.SplitOff(count);
+            }
+
+            net.DistributeAmongStorage(1);
+            return true;
         }
     }
 }

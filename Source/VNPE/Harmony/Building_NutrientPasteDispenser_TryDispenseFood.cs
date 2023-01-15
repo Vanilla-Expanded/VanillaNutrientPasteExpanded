@@ -8,10 +8,16 @@ namespace VNPE
 {
     [HarmonyPatch(typeof(Building_NutrientPasteDispenser))]
     [HarmonyPatch("TryDispenseFood", MethodType.Normal)]
-    public static class Prefix_Building_NutrientPasteDispenser_TryDispenseFood
+    public static class Building_NutrientPasteDispenser_TryDispenseFood
     {
         public static bool Prefix(Building_NutrientPasteDispenser __instance, ref Thing __result)
         {
+            if (__instance is Building_NutrientPasteTap nutrientPasteTap)
+            {
+                __result = nutrientPasteTap.TryDispenseFoodOverride();
+                return false;
+            }
+
             if (!__instance.CanDispenseNow)
             {
                 __result = null;
@@ -30,6 +36,7 @@ namespace VNPE
                     return false;
                 }
             }
+
             return true;
         }
     }

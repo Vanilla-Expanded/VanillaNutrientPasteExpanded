@@ -5,7 +5,7 @@ namespace VNPE
 {
     [HarmonyPatch(typeof(Room))]
     [HarmonyPatch("Notify_RoomShapeChanged", MethodType.Normal)]
-    public static class Postfix_Room_NotifyRoomShapeChanged
+    public static class Room_NotifyRoomShapeChanged
     {
         public static void Postfix(Room __instance)
         {

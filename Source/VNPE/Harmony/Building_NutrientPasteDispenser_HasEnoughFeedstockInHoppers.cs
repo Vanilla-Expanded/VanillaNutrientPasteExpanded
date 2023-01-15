@@ -6,7 +6,7 @@ namespace VNPE
 {
     [HarmonyPatch(typeof(Building_NutrientPasteDispenser))]
     [HarmonyPatch("HasEnoughFeedstockInHoppers", MethodType.Normal)]
-    public static class Postfix_Building_NutrientPasteDispenser_HasEnoughFeedstockInHoppers
+    public static class Building_NutrientPasteDispenser_HasEnoughFeedstockInHoppers
     {
         public static void Postfix(Building_NutrientPasteDispenser __instance, ref bool __result)
         {
