@@ -72,6 +72,7 @@
     <Compile Include="Harmony\Building_NutrientPasteDispenser_GetGizmos.cs" />
     <Compile Include="Harmony\Building_NutrientPasteDispenser_HasEnoughFeedstockInHoppers.cs" />
     <Compile Include="Harmony\Building_NutrientPasteDispenser_TryDispenseFood.cs" />
+    <Compile Include="Harmony\CompBiosculpterPod_CompTick.cs" />
     <Compile Include="Harmony\CompConvertToThing_OutputResource.cs" />
     <Compile Include="Harmony\ThingListGroupHelper_Includes.cs" />
     <Compile Include="Harmony\Room_NotifyRoomShapeChanged.cs" />

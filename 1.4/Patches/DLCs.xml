@@ -7,7 +7,9 @@
     <match Class="PatchOperationAdd">
       <xpath>/Defs/ThingDef[defName="BiosculpterPod"]/comps</xpath>
       <value>
-
+        <li Class="PipeSystem.CompProperties_Resource">
+          <pipeNet>VNPE_NutrientPasteNet</pipeNet>
+        </li>
       </value>
     </match>
   </Operation>
