@@ -11,7 +11,7 @@ namespace VNPE
         public CompFacility facilityComp;
         public CompPowerTrader powerComp;
         public CompResource resourceComp;
-        public override Color DrawColor => Position.IsInPrisonCell(Map) ? Building_Bed.SheetColorForPrisoner : base.DrawColor;
+        public override Color DrawColor => Spawned && Position.IsInPrisonCell(Map) ? Building_Bed.SheetColorForPrisoner : base.DrawColor;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
