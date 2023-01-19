@@ -65,7 +65,7 @@
   <ThingDef ParentName="BuildingBase">
     <defName>VNPE_NutrientPasteTap</defName>
     <label>nutrient paste tap</label>
-    <description>A hopper-like storage basin meant to hold dispensed nutrient paste meal from the vats. Can be used by colonists, prisoners and animals. Nutrient paste meal dispensed and ready for pick-up can deteriorate.</description>
+    <description>A hopper-like storage basin meant to hold dispensed nutrient paste meal from the vats. Can be used by colonists and prisoners. Nutrient paste meal dispensed and ready for pick-up can deteriorate.</description>
     <thingClass>VNPE.Building_NutrientPasteTap</thingClass>
     <graphicData>
       <texPath>Things/Building/NutrientPasteTap/NutrientPasteTap</texPath>
