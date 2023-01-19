@@ -41,7 +41,7 @@ namespace VNPE
             if (!this.IsSociallyProper(null, false))
                 builder.AppendLine((string)"InPrisonCell".Translate());
 
-            if (Prefs.DevMode)
+            if (Prefs.DevMode && !cachedHoppers.NullOrEmpty())
             {
                 builder.AppendLine($"{cachedHoppers.Count} connected hopper(s)\n");
             }
