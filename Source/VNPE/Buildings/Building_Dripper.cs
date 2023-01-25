@@ -23,7 +23,7 @@ namespace VNPE
 
         public override void TickRare()
         {
-            if (!powerComp.PowerOn)
+            if (!powerComp.PowerOn || resourceComp.PipeNet.Stored == 0)
                 return;
 
             var pos = Position;
