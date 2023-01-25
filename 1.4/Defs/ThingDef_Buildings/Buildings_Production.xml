@@ -110,6 +110,7 @@
       <li Class="PipeSystem.CompProperties_Resource">
         <pipeNet>VNPE_NutrientPasteNet</pipeNet>
       </li>
+      <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>100</basePowerConsumption>
@@ -200,6 +201,7 @@
         <maxOutputStackSize>1</maxOutputStackSize>
         <thing>MealNutrientPaste</thing>
       </li>
+      <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>50</basePowerConsumption>
@@ -269,6 +271,7 @@
       <li Class="PipeSystem.CompProperties_Resource">
         <pipeNet>VNPE_NutrientPasteNet</pipeNet>
       </li>
+      <li Class="CompProperties_Flickable" />
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>50</basePowerConsumption>
