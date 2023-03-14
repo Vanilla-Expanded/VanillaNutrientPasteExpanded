@@ -94,7 +94,7 @@ namespace VNPE
 
         private void TryDropFood(int amount)
         {
-            if (!powerComp.PowerOn || amount <= 0)
+            if (!powerComp.PowerOn || amount <= 0 || Find.TickManager.Paused)
                 return;
 
             var net = resourceComp.PipeNet;
