@@ -7,6 +7,8 @@ namespace VNPE
     [StaticConstructorOnStartup]
     public class Init
     {
+        public static bool AnimalControls = false;
+
         static Init()
         {
             Harmony harmony = new Harmony("VanillaExpanded.VNutrientE");
@@ -28,6 +30,13 @@ namespace VNPE
 
             var dripper = DefDatabase<ThingDef>.GetNamed("VNPE_NutrientPasteDripper");
             dripper.GetCompProperties<CompProperties_Facility>().ResolveReferences(dripper);
+
+            // Animal control loaded?
+            if (ModLister.HasActiveModWithName("Animal Controls"))
+            {
+                AnimalControls = true;
+                Log.Message("[VNPE] Animal control detected");
+            }
         }
     }
 }

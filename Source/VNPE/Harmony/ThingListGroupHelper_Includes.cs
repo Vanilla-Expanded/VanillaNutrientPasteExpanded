@@ -11,6 +11,15 @@ namespace VNPE
     [HarmonyPatch(typeof(ThingListGroupHelper), "Includes")]
     public static class ThingListGroupHelper_Includes
     {
+        public static void Postfix(ThingDef def, ThingRequestGroup group, ref bool __result)
+        {
+            // Only used if AnimalControls is loaded, made to counter destructive prefix "ThingListGroupHelper_Includes_CommonSensePatch"
+            if (Init.AnimalControls && group == ThingRequestGroup.FoodSourceNotPlantOrTree && def.defName == "VNPE_NutrientPasteTap")
+            {
+                __result = true;
+            }
+        }
+
         public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> codeInstructions)
         {
             var typeFromHandle = AccessTools.Method(typeof(Type), "GetTypeFromHandle");
