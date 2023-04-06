@@ -67,16 +67,13 @@ namespace VNPE
             var adjCells = GenAdj.CellsAdjacentCardinal(this).ToList();
             for (int i = 0; i < adjCells.Count; i++)
             {
-                var cell = adjCells[i];
-                if (cell.GetFirstBuilding(map) is Building h && h.TryGetComp<CompRegisterToGrinder>() is CompRegisterToGrinder compRegisterToGrinder)
-                {
-                    this.RegisterHopper(h);
-                }
+                if (adjCells[i].GetFirstBuilding(map) is Building h && h.TryGetComp<CompRegisterToGrinder>() != null) RegisterHopper(h);
             }
 
             if (!respawningAfterLoad)
                 nextTick = Find.TickManager.TicksGame + produceTicksNeeded;
         }
+
         public override void Tick()
         {
             var tick = Find.TickManager.TicksGame;
@@ -98,8 +95,7 @@ namespace VNPE
                 effecter = null;
             }
 
-            if (effecter != null)
-                effecter.EffectTick(this, new TargetInfo(Position, Map));
+            effecter?.EffectTick(this, new TargetInfo(Position, Map));
         }
 
         public void UnregisterHopper(Thing hopper)
