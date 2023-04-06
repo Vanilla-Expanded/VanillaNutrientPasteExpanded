@@ -23,11 +23,11 @@ namespace VNPE
 
         public override void TickRare()
         {
-            if (!powerComp.PowerOn || resourceComp.PipeNet.Stored == 0)
+            var net = resourceComp.PipeNet;
+            if (!powerComp.PowerOn || net.Stored == 0)
                 return;
 
             var pos = Position;
-            var net = resourceComp.PipeNet;
             var linkeds = facilityComp.LinkedBuildings;
             for (int i = 0; i < linkeds.Count; i++)
             {

@@ -264,7 +264,7 @@
     </thingCategories>
     <comps>
       <li Class="CompProperties_Facility">
-        <maxSimultaneous>1</maxSimultaneous>
+        <maxSimultaneous>2</maxSimultaneous>
         <mustBePlacedAdjacent>true</mustBePlacedAdjacent>
         <mustBePlacedAdjacentCardinalToAndFacingBedHead>true</mustBePlacedAdjacentCardinalToAndFacingBedHead>
       </li>
