@@ -13,33 +13,12 @@ namespace VNPE
     {
         public static void Postfix(ThingDef def, ThingRequestGroup group, ref bool __result)
         {
-            // Only used if AnimalControls is loaded, made to counter destructive prefix "ThingListGroupHelper_Includes_CommonSensePatch"
-            if (Init.AnimalControls && group == ThingRequestGroup.FoodSourceNotPlantOrTree && def.defName == "VNPE_NutrientPasteTap")
+            // Make sure the nutrient paste tap is considered as Building_NutrientPasteDispenser
+            if ((group == ThingRequestGroup.FoodSourceNotPlantOrTree || group == ThingRequestGroup.FoodSource)
+                && def.defName == "VNPE_NutrientPasteTap")
             {
                 __result = true;
             }
-        }
-
-        public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> codeInstructions)
-        {
-            var typeFromHandle = AccessTools.Method(typeof(Type), "GetTypeFromHandle");
-            var isDerivedFrom = AccessTools.Method(typeof(ThingListGroupHelper_Includes), "IsDerivedFrom");
-            var codes = codeInstructions.ToList();
-            for (var i = 0; i < codes.Count; i++)
-            {
-                var code = codes[i];
-                yield return code;
-                if (code.Calls(typeFromHandle) && codes[i - 1].opcode == OpCodes.Ldtoken && codes[i - 1].OperandIs(typeof(Building_NutrientPasteDispenser)))
-                {
-                    yield return new CodeInstruction(OpCodes.Call, isDerivedFrom);
-                    i++;
-                }
-            }
-        }
-
-        public static bool IsDerivedFrom(Type type, Type toCheck)
-        {
-            return toCheck.IsAssignableFrom(type);
         }
     }
 }
