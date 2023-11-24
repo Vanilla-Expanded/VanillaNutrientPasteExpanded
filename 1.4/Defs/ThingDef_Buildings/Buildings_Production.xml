@@ -100,6 +100,7 @@
       <forceShowRoomStats>true</forceShowRoomStats>
       <buildingTags>
         <li>Production</li>
+        <li>VNPE_NoExtractGizmos</li>
       </buildingTags>
       <destroySound>BuildingDestroyed_Metal_Big</destroySound>
     </building>
