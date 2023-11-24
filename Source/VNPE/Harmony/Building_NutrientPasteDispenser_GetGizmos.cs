@@ -104,11 +104,11 @@ namespace VNPE
 
         public static IEnumerable<Gizmo> Postfix(IEnumerable<Gizmo> __result, Building_NutrientPasteDispenser __instance)
         {
-            if (!__instance.def.building.buildingTags.Contains("VNPE_NoExtractGizmos"))
+            foreach (Gizmo gizmo in __result)
+                yield return gizmo;
+			
+			if (!__instance.def.building.buildingTags.Contains("VNPE_NoExtractGizmos"))
             {
-                foreach (Gizmo gizmo in __result)
-                    yield return gizmo;
-
                 yield return new Command_Action
                 {
                     action = () => TryDropFood(__instance, 5),
