@@ -9,6 +9,7 @@ We are not removing the current nutrient paste dispenser or changing how it work
 </description>
   <supportedVersions>
     <li>1.4</li>
+    <li>1.5</li>
   </supportedVersions>
   <packageId>VanillaExpanded.VNutrientE</packageId>
   <modDependencies>

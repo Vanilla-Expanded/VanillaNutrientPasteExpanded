@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>VNPE_NutrientPasteVat</defName>
+    <label>nutrient paste vat</label>
+    <description>A large tank that can store up to 75 nutrient paste meals in it. Makes a big mess when destroyed.</description>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <graphicData>
+      <texPath>Things/Building/NutrientPasteVat</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,3)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>Impassable</passability>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>1</fillPercent>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>800</WorkToBuild>
+      <Mass>20</Mass>
+      <Flammability>1.0</Flammability>
+    </statBases>
+    <size>(2,2)</size>
+    <costList>
+      <Steel>120</Steel>
+    </costList>
+    <comps>
+      <li Class="PipeSystem.CompProperties_ResourceStorage">
+        <pipeNet>VNPE_NutrientPasteNet</pipeNet>
+        <storageCapacity>75</storageCapacity>
+        <barSize>(0.75, 0.20)</barSize>
+        <margin>0.05</margin>
+        <centerOffset>(0, 0, -0.35)</centerOffset>
+        <destroyOption>
+          <filth>VNPE_Filth_Paste</filth>
+          <ratio>1</ratio>
+          <maxRadius>5</maxRadius>
+        </destroyOption>
+        <contentRequirePower>true</contentRequirePower>
+      </li>
+      <li Class="VNPE.CompProperties_RegisterIngredients"/>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>150</basePowerConsumption>
+      </li>
+    </comps>
+    <tickerType>Rare</tickerType>
+    <rotatable>false</rotatable>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>VCHE_PipeNetworks</designationCategory>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <canOverlapZones>false</canOverlapZones>
+    <researchPrerequisites>
+      <li>NutrientPaste</li>
+    </researchPrerequisites>
+  </ThingDef>
+</Defs>
