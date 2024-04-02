@@ -12,6 +12,7 @@ We are not removing the current nutrient paste dispenser or changing how it work
     <li>1.5</li>
   </supportedVersions>
   <packageId>VanillaExpanded.VNutrientE</packageId>
+  <modIconPath IgnoreIfNoMatchingField="True">UI/VELogo</modIconPath>
   <modDependencies>
     <li>
       <packageId>brrainz.harmony</packageId>
