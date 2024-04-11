@@ -42,7 +42,7 @@ namespace VNPE
                         // Make sure we only apply effect to pawn right next to the dripper
                         if (occupant.Position.AdjacentToCardinal(pos))
                         {
-                            if (occupant.needs.food.CurLevelPercentage <= 0.4)
+                            if (occupant.needs.food.CurLevelPercentage <= 0.26)
                             {
                                 net.DrawAmongStorage(1, net.storages);
                                 var meal = ThingMaker.MakeThing(ThingDefOf.MealNutrientPaste);
