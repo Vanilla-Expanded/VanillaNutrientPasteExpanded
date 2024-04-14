@@ -79,8 +79,8 @@
 
   <ThingDef ParentName="BuildingBase">
     <defName>VNPE_UndergroundNutrientPastePipe</defName>
-    <label>subterranean nutrient paste pipe</label>
-    <description>Subterranean steel pipes for transporting the sludge known as nutrient paste from grinders and storage vats to dispensers.</description>
+    <label>hidden nutrient paste pipe</label>
+    <description>Hidden steel pipes for transporting the sludge known as nutrient paste from grinders and storage vats to dispensers.</description>
     <thingClass>PipeSystem.Building_Pipe</thingClass>
     <category>Building</category>
     <tickerType>Rare</tickerType>
@@ -95,6 +95,10 @@
       <damageData>
         <rect>(0,0.35,1,0.3)</rect>
       </damageData>
+      <ai_neverTrashThis>true</ai_neverTrashThis>
+      <isTargetable>false</isTargetable>
+      <expandHomeArea>false</expandHomeArea>
+      <canBeDamagedByAttacks>false</canBeDamagedByAttacks>
     </graphicData>
     <uiIconPath>Things/Building/Linked/NutrientPipes/NutrientPipes_MenuIcon</uiIconPath>
     <uiIconScale>0.7</uiIconScale>
@@ -111,8 +115,8 @@
     <passability>Standable</passability>
     <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
     <statBases>
-      <MaxHitPoints>400</MaxHitPoints>
-      <WorkToBuild>120</WorkToBuild>
+      <MaxHitPoints>48</MaxHitPoints>
+      <WorkToBuild>280</WorkToBuild>
       <Flammability>0</Flammability>
     </statBases>
     <placingDraggableDimensions>1</placingDraggableDimensions>
