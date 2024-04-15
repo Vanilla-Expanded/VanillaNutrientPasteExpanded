@@ -100,7 +100,7 @@
       <forceShowRoomStats>true</forceShowRoomStats>
       <buildingTags>
         <li>Production</li>
-        <li>VNPE_NoExtractGizmos</li>
+       <li>VNPE_NoExtractGizmos</li>
       </buildingTags>
       <destroySound>BuildingDestroyed_Metal_Big</destroySound>
     </building>
@@ -199,7 +199,7 @@
     <comps>
       <li Class="PipeSystem.CompProperties_ConvertResourceToThing">
         <pipeNet>VNPE_NutrientPasteNet</pipeNet>
-        <maxOutputStackSize>1</maxOutputStackSize>
+        <maxOutputStackSize>5</maxOutputStackSize>
         <thing>MealNutrientPaste</thing>
       </li>
       <li Class="CompProperties_Flickable" />
@@ -208,6 +208,7 @@
         <basePowerConsumption>50</basePowerConsumption>
       </li>
     </comps>
+	
     <researchPrerequisites>
       <li>NutrientPaste</li>
     </researchPrerequisites>
