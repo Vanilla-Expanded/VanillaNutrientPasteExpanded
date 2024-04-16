@@ -134,7 +134,6 @@ namespace VNPE
                     if (Building_NutrientPasteDispenser.IsAcceptableFeedstock(thing.def))
                     {
                         num += thing.stackCount * thing.GetStatValue(StatDefOf.Nutrition);
-                        break;
                     }
                 }
 
