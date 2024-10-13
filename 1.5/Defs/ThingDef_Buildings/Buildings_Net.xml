@@ -54,7 +54,7 @@
       <li Class="PipeSystem.CompProperties_SpillWhenDamaged">
         <spillEachTicks>600</spillEachTicks>
         <startAtHitPointsPercent>0.333</startAtHitPointsPercent>
-        <amountToDraw>1</amountToDraw>
+        <amountToDraw>0</amountToDraw>
         <filthMaxSpawnRadius>1</filthMaxSpawnRadius>
         <chooseFilthFrom>
           <li>VNPE_Filth_Paste</li>
@@ -130,7 +130,7 @@
       <li Class="PipeSystem.CompProperties_SpillWhenDamaged">
         <spillEachTicks>1200</spillEachTicks>
         <startAtHitPointsPercent>0.333</startAtHitPointsPercent>
-        <amountToDraw>1</amountToDraw>
+        <amountToDraw>0</amountToDraw>
         <filthMaxSpawnRadius>1</filthMaxSpawnRadius>
         <chooseFilthFrom>
           <li>VNPE_Filth_Paste</li>
