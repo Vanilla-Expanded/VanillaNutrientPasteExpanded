@@ -10,6 +10,7 @@ We are not removing the current nutrient paste dispenser or changing how it work
   <supportedVersions>
     <li>1.4</li>
     <li>1.5</li>
+	 <li>1.6</li>
   </supportedVersions>
   <packageId>VanillaExpanded.VNutrientE</packageId>
   <modIconPath IgnoreIfNoMatchingField="True">UI/VELogo</modIconPath>
@@ -27,9 +28,7 @@ We are not removing the current nutrient paste dispenser or changing how it work
     </li>
   </modDependencies>
   <loadAfter>
-    <li>Ludeon.RimWorld</li>
-    <li>Ludeon.RimWorld.Royalty</li>
-    <li>brrainz.harmony</li>
+  
     <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
   </loadAfter>
 </ModMetaData>

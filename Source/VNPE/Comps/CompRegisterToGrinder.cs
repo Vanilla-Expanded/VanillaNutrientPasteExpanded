@@ -7,9 +7,9 @@ namespace VNPE
     {
         private List<Building_NutrientGrinder> grinders;
 
-        public override void PostDeSpawn(Map map)
+        public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
         {
-            base.PostDeSpawn(map);
+            base.PostDeSpawn(map,mode);
             for (int i = 0; i < grinders.Count; i++)
             {
                 grinders[i].UnregisterHopper(parent);

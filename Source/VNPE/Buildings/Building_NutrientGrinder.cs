@@ -74,7 +74,7 @@ namespace VNPE
                 nextTick = Find.TickManager.TicksGame + produceTicksNeeded;
         }
 
-        public override void Tick()
+        protected override void Tick()
         {
             var tick = Find.TickManager.TicksGame;
             if (tick >= nextTick)
