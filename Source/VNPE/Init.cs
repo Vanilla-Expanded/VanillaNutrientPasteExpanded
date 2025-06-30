@@ -11,7 +11,7 @@ namespace VNPE
 
         static Init()
         {
-            Harmony harmony = new Harmony("VanillaExpanded.VNutrientE");
+            HarmonyLib.Harmony harmony = new HarmonyLib.Harmony("VanillaExpanded.VNutrientE");
             harmony.PatchAll();
             // Add dripper to all beds
             var defs = DefDatabase<ThingDef>.AllDefsListForReading;

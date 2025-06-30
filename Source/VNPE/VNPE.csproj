@@ -35,6 +35,10 @@
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>..\..\..\HarmonyRimWorld\Current\Assemblies\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="PipeSystem">
       <HintPath>..\..\..\VanillaExpandedFramework\1.4\Assemblies\PipeSystem.dll</HintPath>
       <Private>False</Private>
@@ -80,12 +84,9 @@
     <Compile Include="Init.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VThingDefOf.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Lib.Harmony" ExcludeAssets="Runtime">
-      <Version>2.3.6</Version>
-      <IncludeAssets>compile; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <Compile Include="Harmony\CompConvertToThing_Patch.cs" />
+    <Compile Include="Harmony\Frame_CompleteConstruction_Patch.cs" />
+    <Compile Include="Harmony\StorageSettings_CopyFrom_Patch.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
