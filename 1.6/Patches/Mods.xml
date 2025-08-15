@@ -2,7 +2,7 @@
 <Patch>
   <Operation Class="PatchOperationFindMod">
     <mods>
-      <li>Hospitality</li>
+      <li>Hospitality (Continued)</li>
     </mods>
     <match Class="PatchOperationAdd">
       <xpath>/Defs/Hospitality.HospitalityConfigDef[defName="MainConfig"]/vendingMachines</xpath>
