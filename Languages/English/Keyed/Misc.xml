@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
-  <VNPE_NutValve>Switches nutrient paste flow on/off.</VNPE_NutValve>
-  <VNPE_NutValveDesc>Switches nutrient paste flow on/off. A pawn will come open/close the valve.</VNPE_NutValveDesc>
-
-  <VNPE_Drain>Drain vat</VNPE_Drain>
-  <VNPE_DrainDesc>Drain vat content. This will remove any unwanted ingredients from the vat.</VNPE_DrainDesc>
-
-  <VNPE_Extract5>Extract 5 meals</VNPE_Extract5>
-  <VNPE_Extract10>Extract 10 meals</VNPE_Extract10>
-  <VNPE_Extract20>Extract 20 meals</VNPE_Extract20>
+	<VNPE_NutValve>Switches nutrient paste flow on/off.</VNPE_NutValve>
+	<VNPE_NutValveDesc>Switches nutrient paste flow on/off. A pawn will come open/close the valve.</VNPE_NutValveDesc>
+	<VNPE_Drain>Drain vat</VNPE_Drain>
+	<VNPE_DrainDesc>Drain vat content. This will remove any unwanted ingredients from the vat.</VNPE_DrainDesc>
+	<VNPE_Extract5>Extract 5 meals</VNPE_Extract5>
+	<VNPE_Extract10>Extract 10 meals</VNPE_Extract10>
+	<VNPE_Extract20>Extract 20 meals</VNPE_Extract20>
+	<VNPE_NutrientDripperThreshold>Nutrient dripper feeding threshold</VNPE_NutrientDripperThreshold>
+	<VNPE_NutrientDripperThresholdDesc>By default, nutrient drippers will feed bed occupants when their hunger goes below 26%. You can tweak that value with this slider.</VNPE_NutrientDripperThresholdDesc>
+	<VNPE_Reset>Reset</VNPE_Reset>
 </LanguageData>
