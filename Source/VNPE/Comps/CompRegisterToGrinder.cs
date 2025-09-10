@@ -9,10 +9,21 @@ namespace VNPE
 
         public override void PostDeSpawn(Map map, DestroyMode mode = DestroyMode.Vanish)
         {
-            base.PostDeSpawn(map,mode);
-            for (int i = 0; i < grinders.Count; i++)
+            base.PostDeSpawn(map, mode);
+
+            if (grinders != null)
             {
-                grinders[i].UnregisterHopper(parent);
+                // Remove null or destroyed grinders first
+                grinders.RemoveAll(g => g == null || g.Destroyed);
+
+                foreach (var grinder in grinders)
+                {
+                    if (grinder != null && !grinder.Destroyed)
+                    {
+                        // Defensive: Remove this hopper from the grinder, checking for nulls inside grinder implementation
+                        grinder.UnregisterHopper(parent);
+                    }
+                }
             }
         }
 
