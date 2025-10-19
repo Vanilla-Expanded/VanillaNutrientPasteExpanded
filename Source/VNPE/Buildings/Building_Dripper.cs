@@ -39,7 +39,7 @@ namespace VNPE
                     for (int o = 0; o < occupants.Count; o++)
                     {
                         var occupant = occupants[o];
-                        if (occupant.needs.food.CurLevelPercentage <= NutrientPasteMod_Settings.nutrientPasteDripperThreshold)
+                        if (occupant.needs?.food!=null && occupant.needs.food.CurLevelPercentage <= NutrientPasteMod_Settings.nutrientPasteDripperThreshold)
                         {
                             net.DrawAmongStorage(1, net.storages);
                             var meal = ThingMaker.MakeThing(ThingDefOf.MealNutrientPaste);
