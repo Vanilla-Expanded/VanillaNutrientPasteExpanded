@@ -100,8 +100,15 @@ namespace VNPE
 
         public void UnregisterHopper(Thing hopper)
         {
-            if (cachedHoppers.Contains(hopper))
-                cachedHoppers.Remove(hopper);
+            if (cachedHoppers != null)
+            {
+                // Remove null or destroyed hoppers first
+                cachedHoppers.RemoveAll(h => h == null || h.Destroyed);
+                if (hopper != null && cachedHoppers.Contains(hopper))
+                {
+                    cachedHoppers.Remove(hopper);
+                }
+            }
         }
 
         private Thing FindFeedInAnyHopper()
