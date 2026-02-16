@@ -169,6 +169,7 @@
       <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
       <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
       <forceShowRoomStats>true</forceShowRoomStats>
+	  <blueprintClass>Blueprint_Storage</blueprintClass>
       <buildingTags>
         <li>Production</li>
       </buildingTags>
