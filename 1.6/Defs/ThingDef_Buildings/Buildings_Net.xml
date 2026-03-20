@@ -32,6 +32,7 @@
 			<blueprintGraphicData>
 				<texPath>Things/Building/Linked/NutrientPipes/NutrientPipes_Blueprint_Atlas</texPath>
 			</blueprintGraphicData>
+			<canConstructInCorner>true</canConstructInCorner>
 		</building>
 		<drawerType>MapMeshOnly</drawerType>
 		<altitudeLayer>Conduits</altitudeLayer>
