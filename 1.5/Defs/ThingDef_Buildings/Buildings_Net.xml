@@ -191,7 +191,7 @@
         <alwaysLinkToPipes>true</alwaysLinkToPipes>
       </li>
       <li Class="CompProperties_Flickable">
-        <commandTexture>Things/Item/Meal/Nutrientpaste/NutrientPaste_a</commandTexture>
+        <commandTexture>Things/Item/Meal/NutrientPaste/NutrientPaste_a</commandTexture>
         <commandLabelKey>VNPE_NutValve</commandLabelKey>
         <commandDescKey>VNPE_NutValveDesc</commandDescKey>
       </li>
